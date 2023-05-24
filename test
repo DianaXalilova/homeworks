@@ -1,0 +1,334 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN+bdAZ1TdQQPRc1w1CThtR",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/DianaXalilova/homeworks/blob/main/test\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 3,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "CBs0uDm3l-mB",
+        "outputId": "26844a11-0a47-4054-a125-54fcd6446d8d"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Waste a Moment\n",
+            "New Salvation\n",
+            "Staying' Alive\n",
+            "Start Me Up\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Халилова Диана Альбертовна 2 поток\n",
+        "# Задача 1.1.\n",
+        "\n",
+        "# Есть строка с перечислением песен\n",
+        "\n",
+        "my_favorite_songs = 'Waste a Moment, Staying\\' Alive, A Sorta Fairytale, Start Me Up, New Salvation'\n",
+        "\n",
+        "# Выведите на консоль с помощью индексации строки, последовательно: первый трек, последний, второй, второй с конца\n",
+        "# Нельзя переопределять my_favorite_songs и запятая не должна выводиться.\n",
+        "songs_list = my_favorite_songs.split(', ')\n",
+        "print(songs_list[0])\n",
+        "print(songs_list[-1])\n",
+        "print(songs_list[1])\n",
+        "print(songs_list[-2])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Задача 1.2.\n",
+        "\n",
+        "# Пункт A (+ пункт С и D)\n",
+        "# Приведем плейлист песен в виде списка списков\n",
+        "# Список my_favorite_songs содержит список названий и длительности каждого трека\n",
+        "# Выведите общее время звучания трех случайных песен в формате\n",
+        "# Три песни звучат ХХХ минут\n",
+        "# Дополнительно для пунктов A и B\n",
+        "# Пункт C.\n",
+        "# Сгенерируйте случайные песни с помощью модуля random\n",
+        "# import random\n",
+        "\n",
+        "# Дополнительно \n",
+        "# Пункт D.\n",
+        "# Переведите минуты и секунды в формат времени. Используйте модуль datetime \n",
+        "\n",
+        "import random\n",
+        "import datetime\n",
+        "my_favorite_songs = [\n",
+        "    ['Waste a Moment', 3.03],\n",
+        "    ['New Salvation', 4.02],\n",
+        "    ['Staying\\' Alive', 3.40],\n",
+        "    ['Out of Touch', 3.03],\n",
+        "    ['A Sorta Fairytale', 5.28],\n",
+        "    ['Easy', 4.15],\n",
+        "    ['Beautiful Day', 4.04],\n",
+        "    ['Nowhere to Run', 2.58],\n",
+        "    ['In This World', 4.02],\n",
+        "]\n",
+        "songs_long = .0\n",
+        "songs_long_td = datetime.timedelta(0)\n",
+        "i = 0\n",
+        "while i < 3:\n",
+        "    song = random.choice(my_favorite_songs)\n",
+        "    print(song)\n",
+        "    songs_long += song[1]\n",
+        "    songs_long_td += datetime.timedelta(minutes=int(song[1]), seconds=round(song[1] % 1 * 100))\n",
+        "    i += 1\n",
+        "\n",
+        "print(f'Три песни звучат {round(songs_long, 2)} минут.')\n",
+        "print(f'Три песни звучат {songs_long_td} минут. ')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MxQ2O7HJ-rlC",
+        "outputId": "183a2128-cfc4-441c-9e67-207cb0d6784a"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "['Easy', 4.15]\n",
+            "['Waste a Moment', 3.03]\n",
+            "['Out of Touch', 3.03]\n",
+            "Три песни звучат 10.21 минут.\n",
+            "Три песни звучат 0:10:21 минут. \n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Задача 1.2.\n",
+        "# Пункт В (+ пункт С и D)\n",
+        "# Есть словарь песен \n",
+        "# Распечатайте общее время звучания трех случайных песен\n",
+        "# Вывод: Три песни звучат ХХХ минут.\n",
+        "# Дополнительно для пунктов A и B\n",
+        "# Пункт C.\n",
+        "# Сгенерируйте случайные песни с помощью модуля random\n",
+        "# import random\n",
+        "\n",
+        "# Дополнительно \n",
+        "# Пункт D.\n",
+        "# Переведите минуты и секунды в формат времени. Используйте модуль datetime \n",
+        "\n",
+        "my_favorite_songs_dict = {\n",
+        "    'Waste a Moment': 3.03,\n",
+        "    'New Salvation': 4.02,\n",
+        "    'Staying\\' Alive': 3.40,\n",
+        "    'Out of Touch': 3.03,\n",
+        "    'A Sorta Fairytale': 5.28,\n",
+        "    'Easy': 4.15,\n",
+        "    'Beautiful Day': 4.04,\n",
+        "    'Nowhere to Run': 2.58,\n",
+        "    'In This World': 4.02,\n",
+        "}\n",
+        "songs_long = .0\n",
+        "songs_long_td = datetime.timedelta(0)\n",
+        "i = 0\n",
+        "keys = []\n",
+        "keys = list(my_favorite_songs_dict.keys())\n",
+        "while i < 3:\n",
+        "    song_title = random.choice(keys)\n",
+        "    curr_song_long = my_favorite_songs_dict[song_title]\n",
+        "    print(f'[{song_title}: {curr_song_long}]')\n",
+        "    songs_long += curr_song_long\n",
+        "    songs_long_td += datetime.timedelta(minutes=int(curr_song_long), seconds=round(curr_song_long % 1 * 100))\n",
+        "    i += 1\n",
+        "\n",
+        "print(f'Три песни звучат {round(songs_long, 2)} минут.')\n",
+        "print(f'Три песни звучат {songs_long_td} минут. ')"
+      ],
+      "metadata": {
+        "id": "XXrXdLlqBbBK",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "3535159d-f21d-4048-f048-a3398320d0b6"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[Waste a Moment: 3.03]\n",
+            "[Easy: 4.15]\n",
+            "[Out of Touch: 3.03]\n",
+            "Три песни звучат 10.21 минут.\n",
+            "Три песни звучат 0:10:21 минут. \n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Задача 1.3.\n",
+        "\n",
+        "# Напишите скрипт, который принимает от пользователя номер месяца, \n",
+        "# а возвращает количество дней в нем.\n",
+        "# Результат проверки вывести на консоль\n",
+        "# Допущение: в феврале 28 дней\n",
+        "# Если номер месяца некорректен - сообщить об этом\n",
+        "\n",
+        "# Например,\n",
+        "# Введите номер месяца: 3\n",
+        "# Вы ввели март. 31 дней\n",
+        "\n",
+        "# Введите номер месяца: 2\n",
+        "# Вы ввели февраль. 28 дней\n",
+        "\n",
+        "# Введите номер месяца: 15\n",
+        "# Такого месяца нет!\n",
+        "\n",
+        "import calendar\n",
+        "\n",
+        "days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]\n",
+        "while True:\n",
+        "    input_str = input('Введите номер месяца, \"exit\" для выхода: ')\n",
+        "    if input_str.lower() == 'exit':\n",
+        "        break\n",
+        "    try:\n",
+        "        month_num = int(input_str)\n",
+        "    except ValueError:\n",
+        "        print('Вы ввели не число.')\n",
+        "        continue\n",
+        "    if month_num not in range(1, 13):\n",
+        "        print('Такого месяца нет!')\n",
+        "        continue\n",
+        "    else:\n",
+        "        print(f'Вы ввели {calendar.month_name[month_num]}. {days_in_month[month_num-1]} дней')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8sklQzpk4nrM",
+        "outputId": "e2254764-f2d6-4bef-fe97-e9074411ccb8"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Введите номер месяца, \"exit\" для выхода: 3\n",
+            "Вы ввели March. 31 дней\n",
+            "Введите номер месяца, \"exit\" для выхода: 2\n",
+            "Вы ввели February. 28 дней\n",
+            "Введите номер месяца, \"exit\" для выхода: 15\n",
+            "Такого месяца нет!\n",
+            "Введите номер месяца, \"exit\" для выхода: exit\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Задача 1.4.\n",
+        "\n",
+        "# Есть словарь кодов товаров titles\n",
+        "\n",
+        "titles = {\n",
+        "    'Кроссовки тип 3 (Adidas)': '100000110',\n",
+        "    'Мячик тип 2 (Adidas)': '100000146',\n",
+        "    'Кепка тип 1 (Adidas)': '100000149',\n",
+        "    'Ремень тип 2 (Nike)': '100000194',\n",
+        "    'Футболка тип 1 (Adidas)': '100000224',\n",
+        "    'Шапка тип 5 (Puma)': '100000280',\n",
+        "}\n",
+        "\n",
+        "# Товары находятся на складе и сохранены в виде словаря списков словарей,\n",
+        "# которые отражают количество товаров в магазине по каждому коду.\n",
+        "\n",
+        "store = {\n",
+        "    '100000110': [{'quantity': 31, 'price': 1637}],\n",
+        "    '100000146': [{'quantity': 4, 'price': 45}, {'quantity': 10, 'price': 48}],\n",
+        "    '100000149': [{'quantity': 28, 'price': 279}, {'quantity': 32, 'price': 291}],\n",
+        "    '100000194': [{'quantity': 8, 'price': 220}, {'quantity': 1, 'price': 170}],\n",
+        "    '100000224': [{'quantity': 61, 'price': 438}, {'quantity': 23, 'price': 302},  {'quantity': 50, 'price': 412}],\n",
+        "    '100000280': [{'quantity': 26, 'price': 175}, ]\n",
+        "}\n",
+        "\n",
+        "# Рассчитайте на какую сумму лежит каждого товара на складе.\n",
+        "#\n",
+        "# Вывести суммарную стоимость каждого товара в магазине в формате:\n",
+        "# \"<товар> - <кол-во> шт, стоимость <общая стоимость> руб\"\n",
+        "\n",
+        "# Пример: \"Кроссовки тип 3 (Adidas) - 31 шт, стоимость 50747 руб\"\n",
+        "curr_good_code = ''\n",
+        "reversed_titles = dict((v, k) for k, v in titles.items())  \n",
+        "for curr_good_code in store:       \n",
+        "    curr_good_items = store[curr_good_code]     \n",
+        "    curr_good_quantity_sum = 0                  \n",
+        "    curr_good_prices_sum = 0                    \n",
+        "    for item in curr_good_items:    \n",
+        "        curr_good_quantity_sum += item['quantity']    \n",
+        "        curr_good_prices_sum += item['quantity'] * item['price']\n",
+        "    print(f'{reversed_titles[curr_good_code]} ({curr_good_code}) - '\n",
+        "          f'{curr_good_quantity_sum} шт., стоимость {curr_good_prices_sum} руб.')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "aVqwbEfC5Duh",
+        "outputId": "9c7aab8f-e333-413d-ab6c-9ecbbd50f53d"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Кроссовки тип 3 (Adidas) (100000110) - 31 шт., стоимость 50747 руб.\n",
+            "Мячик тип 2 (Adidas) (100000146) - 14 шт., стоимость 660 руб.\n",
+            "Кепка тип 1 (Adidas) (100000149) - 60 шт., стоимость 17124 руб.\n",
+            "Ремень тип 2 (Nike) (100000194) - 9 шт., стоимость 1930 руб.\n",
+            "Футболка тип 1 (Adidas) (100000224) - 134 шт., стоимость 54264 руб.\n",
+            "Шапка тип 5 (Puma) (100000280) - 26 шт., стоимость 4550 руб.\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
